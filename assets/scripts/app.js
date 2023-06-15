@@ -46,7 +46,8 @@ subtractBtn.addEventListener('click',subtract);
 multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
 
-
+// let is a block scoop 
+// var is a function and global scoop
 var name1 = 'med';
 function a(){
     console.log(name1);
@@ -57,3 +58,8 @@ function a(){
 //currentResult = currentResult + 10;
 //let abc = '(' +currentResult+ '+1+12)+ 1';
 //outputResult(currentResult , abc);
+
+
+// javascript engine & what they do
+// my code  --> browser 
+// javascript parsing & execution interpreter(he excute the code and provide a bytecode)-- compiler ( just in time provide a Compiled machine code)
