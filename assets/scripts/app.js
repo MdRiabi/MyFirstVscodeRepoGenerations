@@ -47,7 +47,10 @@ multiplyBtn.addEventListener('click', multiply);
 divideBtn.addEventListener('click', divide);
 
 
-
+var name1 = 'med';
+function a(){
+    console.log(name1);
+}
 
 
 
