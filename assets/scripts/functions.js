@@ -30,12 +30,40 @@
 //function expression --> const a = function(a,b){return a*b;}
 
 
-const startGameBtn = document.getElementById('start-game-btn');
 
 
-function startGame() {
+
+//function startGame() {
     console.log('Game is Starting...');
-}
+//}
 
 //startGame();
-startGameBtn.addEventListener('click', startGame);
+//startGameBtn.addEventListener('click', startGame);
+
+const startGameBtn = document.getElementById('start-game-btn');
+
+const ROCK = 'ROCK';
+const PAPER = 'PAPER';
+const SCISSORS = 'SCISSORS';
+const DEFAULT_USER_CHOICE = ROCK;
+const RESULT_DROW = 'DROW';
+const RESULT_PLAYER_WINS = 'PLAYER_WINS';
+const RESULT_COMPUTER_WINS = 'COMPUTER_WINS';
+
+let gameIsRunning = false;
+
+const getPlayerChoice = function(){
+  const selection = prompt(`${ROCK},${PAPER},${SCISSORS}?`,"").toUpperCase();
+
+  if(selection!==ROCK && selection!== PAPER && selection!==SCISSORS){
+    alert(`invalid choice! we chose ${DEFAULT_USER_CHOICE} for you!`);
+    return DEFAULT_USER_CHOICE;
+  }
+  return selection;
+};
+
+startGameBtn.addEventListener('click', function(){
+console.log('Game is starting...');
+const playerSelection = getPlayerChoice();
+console.log(playerSelection);
+});
