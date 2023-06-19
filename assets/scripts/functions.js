@@ -52,7 +52,7 @@ const RESULT_COMPUTER_WINS = 'COMPUTER_WINS';
 
 let gameIsRunning = false;
 
-const getPlayerChoice = function(){
+const getPlayerChoice = ()=>{
   const selection = prompt(`${ROCK},${PAPER},${SCISSORS}?`,"").toUpperCase();
 
   if(selection!==ROCK && selection!== PAPER && selection!==SCISSORS){
@@ -62,19 +62,20 @@ const getPlayerChoice = function(){
   return selection;
 };
 
-const getComputerChoice = function(){
+const getComputerChoice = ()=>{
  const randomValue = Math.random();
- if(randomValue <0.34){
+ randomValue <0.34 ? ROCK : randomValue<0.67 ?PAPER : SCISSORS ;
+ /* if(randomValue <0.34){
   return ROCK;
   }else if(randomValue <0.67){
   return PAPER;
   }else{
   return SCISSORS;
- }
+ } */
 };
 
-const getResult = function(playerSelection, computerSelection){
-  
+const getResult = (playerSelection, computerSelection)=>{
+
   return computerSelection === playerSelection ? RESULT_DROW
    : (computerSelection ===ROCK && playerSelection ===PAPER) ||
     (computerSelection ===PAPER && playerSelection ===SCISSORS) ||
@@ -93,7 +94,7 @@ const getResult = function(playerSelection, computerSelection){
   } */
 };
 
-startGameBtn.addEventListener('click', function(){
+startGameBtn.addEventListener('click', ()=>{
 if(gameIsRunning){
   return; 
 }
@@ -104,3 +105,9 @@ const computerChoice = getComputerChoice();
 const resultChoice = getResult(playerChoice, computerChoice);
 console.log(resultChoice);
 });
+
+// arrow function javascript const add = (a, b) => a + b; is the same as const add = function(a, b){ return a + b} 
+//const log = message => {
+ // console.log(message); // could also return something of course - this example just doesn't
+//};
+//Noteworthy: Parentheses around parameter list can be omitted (for exactly one argument).
