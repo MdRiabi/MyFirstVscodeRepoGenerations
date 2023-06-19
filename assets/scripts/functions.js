@@ -64,20 +64,20 @@ const getPlayerChoice = ()=>{
 
 const getComputerChoice = ()=>{
  const randomValue = Math.random();
- randomValue <0.34 ? ROCK : randomValue<0.67 ?PAPER : SCISSORS ;
- /* if(randomValue <0.34){
+// randomValue <0.34 ? ROCK : randomValue<0.67 ? PAPER : SCISSORS ;
+  if(randomValue <0.34){
   return ROCK;
   }else if(randomValue <0.67){
   return PAPER;
   }else{
   return SCISSORS;
- } */
+ } 
 };
 
 const getResult = (playerSelection, computerSelection)=>{
 
   return computerSelection === playerSelection ? RESULT_DROW
-   : (computerSelection ===ROCK && playerSelection ===PAPER) ||
+   :(computerSelection ===ROCK && playerSelection ===PAPER) ||
     (computerSelection ===PAPER && playerSelection ===SCISSORS) ||
     (computerSelection ===SCISSORS && playerSelection ===ROCK) ? RESULT_PLAYER_WINS 
     : RESULT_COMPUTER_WINS ;
@@ -103,7 +103,17 @@ console.log('Game is starting...');
 const playerChoice = getPlayerChoice();
 const computerChoice = getComputerChoice();
 const resultChoice = getResult(playerChoice, computerChoice);
-console.log(resultChoice);
+
+let message = `You picked ${playerChoice} and computer picked ${computerChoice}`;
+if(resultChoice === RESULT_DROW){
+  message = message + 'had a drow.!';
+} else if(resultChoice === RESULT_PLAYER_WINS) {
+  message = message + 'won!';
+} else  {
+  message = message + 'lost!';
+}
+alert(message);
+gameIsRunning = false;
 });
 
 // arrow function javascript const add = (a, b) => a + b; is the same as const add = function(a, b){ return a + b} 
