@@ -62,8 +62,38 @@ const getPlayerChoice = function(){
   return selection;
 };
 
+const getComputerChoice = function(){
+ const randomValue = Math.random();
+ if(randomValue <0.34){
+  return ROCK;
+  }else if(randomValue <0.67){
+  return PAPER;
+  }else{
+  return SCISSORS;
+ }
+};
+
+const getResult = function(playerSelection, computerSelection){
+  if(playerSelection === computerSelection){
+    return RESULT_DROW;
+  }else if(computerSelection ===ROCK && playerSelection ===PAPER ||
+    computerSelection ===PAPER && playerSelection ===SCISSORS ||
+    computerSelection ===SCISSORS && playerSelection ===ROCK){
+    return RESULT_PLAYER_WINS;
+  }
+  else  {
+    return RESULT_COMPUTER_WINS;
+  }
+};
+
 startGameBtn.addEventListener('click', function(){
+if(gameIsRunning){
+  return; 
+}
+gameIsRunning = true;
 console.log('Game is starting...');
-const playerSelection = getPlayerChoice();
-console.log(playerSelection);
+const playerChoice = getPlayerChoice();
+const computerChoice = getComputerChoice();
+const resultChoice = getResult(playerChoice, computerChoice);
+console.log(resultChoice);
 });
