@@ -74,7 +74,14 @@ const getComputerChoice = function(){
 };
 
 const getResult = function(playerSelection, computerSelection){
-  if(playerSelection === computerSelection){
+  
+  return computerSelection === playerSelection ? RESULT_DROW
+   : (computerSelection ===ROCK && playerSelection ===PAPER) ||
+    (computerSelection ===PAPER && playerSelection ===SCISSORS) ||
+    (computerSelection ===SCISSORS && playerSelection ===ROCK) ? RESULT_PLAYER_WINS 
+    : RESULT_COMPUTER_WINS ;
+
+  /* if(playerSelection === computerSelection){
     return RESULT_DROW;
   }else if(computerSelection ===ROCK && playerSelection ===PAPER ||
     computerSelection ===PAPER && playerSelection ===SCISSORS ||
@@ -83,7 +90,7 @@ const getResult = function(playerSelection, computerSelection){
   }
   else  {
     return RESULT_COMPUTER_WINS;
-  }
+  } */
 };
 
 startGameBtn.addEventListener('click', function(){
