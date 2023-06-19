@@ -121,3 +121,30 @@ gameIsRunning = false;
  // console.log(message); // could also return something of course - this example just doesn't
 //};
 //Noteworthy: Parentheses around parameter list can be omitted (for exactly one argument).
+
+// Spread operator: The spread operator helps us expand an iterable such as an array where multiple arguments are needed, it also helps to expand the object expressions.
+//exemple of use : var var_name = [...iterable];
+//var array1 = [10, 20, 30, 40, 50];
+/* var array2 = [60, 70, 80, 90, 100];
+var array3 = [...array1, ...array2];
+console.log(array3);      Output: [10, 20, 30, 40, 50, 60, 70, 80, 90, 100] */ 
+
+
+//var array1 = [10, 20, 30, 40, 50];
+/* var array2 = [...array1, 60];
+console.log(array2);   => output [10, 20, 30, 40, 50, 60]
+*/
+
+
+/* const obj = {
+  firstname: "Divit",
+  lastname: "Patidar",
+};
+const obj2 = { ...obj };
+console.log(obj2);           =>   
+
+output   {
+    firstname: "Divit",
+    lastname: "Patidar"
+}*/
+
